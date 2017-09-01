@@ -15,6 +15,8 @@ class Api::V1::RecordsController < ApplicationController
     render json: @record
   end
 
+  
+
   private
   def record_params
     params.require(:record).permit(:name, :language, :content)

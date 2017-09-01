@@ -1,5 +1,10 @@
 class Api::V1::UsersController < ApplicationController
 
+  def index
+    @users = User.all.map{|user| user.email}
+    render json: @users
+  end
+
   def create
     @user = User.new(user_params)
     @user.password = params[:password]
