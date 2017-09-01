@@ -1,24 +1,14 @@
-# README
+Connected Text (ConnText) is a work-in-progress text editor for programmers.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Planned features:
 
-Things you may want to cover:
+1. Pull files from GitHub repos;
+2. Save/load files from ConnText API;
+3. Grant other ConnText users access to a file;
+4. Facilitate multi-user live text editing (think Google Docs) through Rails Action Cable in the back end.
 
-* Ruby version
+Stretch goals that may or may not be implemented at a later date:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Full GitHub integration, including login/signup and ability to open full repos;
+2. Ability to have multiple files open at once in tabs;
+3. Ability to create and push commits to GitHub directly from ConnText.
