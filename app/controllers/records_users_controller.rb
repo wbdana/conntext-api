@@ -1,0 +1,2 @@
+class RecordsUsersController < ApplicationController
+end
