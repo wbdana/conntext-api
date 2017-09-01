@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
   def index
-    @users = User.all.map{|user| user.email}
+    @users = User.all.map{|user| {id: user.id, username: user.username, email: user.email, profile_image_url: user.profile_image_url}}
     render json: @users
   end
 
@@ -19,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     render json: {
       user: {
+        username: @user.username,
         email: @user.email,
         profile_image_url: @user.profile_image_url
       }
