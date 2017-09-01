@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
@@ -10,12 +10,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def cu
-    render json: current_user
-  end
-
   def show
-    render json: current_user
+    @user = User.find_by(id: params[:id])
+    render json: {
+      user: {
+        email: @user.email,
+        profile_image_url: @user.profile_image_url
+      }
+    }
   end
 
   private
