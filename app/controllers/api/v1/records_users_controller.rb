@@ -1,5 +1,5 @@
 class Api::V1::RecordsUsersController < ApplicationController
-  before_action :authenticate_user
+  # before_action :authenticate_user
 
   def create
     @user = current_user
@@ -11,5 +11,5 @@ class Api::V1::RecordsUsersController < ApplicationController
       end
     end
   end
-  
+
 end

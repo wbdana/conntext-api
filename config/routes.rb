@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :users
       resources :records
       resources :records_users
+
+      get 'cu' => 'users#cu'
     end
   end
 

@@ -1,8 +1,13 @@
 class Api::V1::UsersController < ApplicationController
+  # before_action :authenticate_user, except: [:create]
 
   def index
     @users = User.all.map{|user| {id: user.id, username: user.username, email: user.email, profile_image_url: user.profile_image_url}}
     render json: @users
+  end
+
+  def cu
+    render json: current_user
   end
 
   def create
