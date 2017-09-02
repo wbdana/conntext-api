@@ -1,5 +1,13 @@
 class Api::V1::RecordsController < ApplicationController
-  before_action :authenticate_user
+
+  def index
+    @records = Record.all
+    @records_users = RecordsUser.all
+    render json: {
+      records: @records,
+      records_users: @records_users
+    }
+  end
 
   def create
     @record = Record.new(record_params)
