@@ -25,7 +25,9 @@ class Api::V1::RecordsController < ApplicationController
   end
 
   def update
-
+    @record = Record.find_by(id: params[:id])
+    @record.update(record_params)
+    render json: @record
   end
 
   private
