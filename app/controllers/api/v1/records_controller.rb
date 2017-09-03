@@ -3,7 +3,7 @@ class Api::V1::RecordsController < ApplicationController
   # For AllFiles component; need to add RecordsUsers as collaborators to each record
   def index
     @records = Record.all
-    @records_users = RecordsUser.all
+    @records_users = RecordsUser.all.sort_by{ |rec| rec.updated_at }.sort{ |a, b| b <=> a }
     render json: {
       records: @records,
       records_users: @records_users
