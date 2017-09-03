@@ -13,6 +13,9 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.password = params[:password]
+    if @user.profile_image_url == ""
+      @user.profile_image_url = "http://www.britishbattles.com/wp-content/uploads/2017/02/montague-dawson-the-battle-of-trafalgar_.jpg"
+    end
     if @user.save
       render json: {status: 200}
     else
