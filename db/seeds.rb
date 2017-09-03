@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(username: 'bob', email: 'bob@gmail.com', password: 'test', profile_image_url: 'http://www.britishbattles.com/wp-content/uploads/2017/02/montague-dawson-the-battle-of-trafalgar_.jpg')
+User.create(email: 'bob', password: 'test', profile_image_url: 'http://www.britishbattles.com/wp-content/uploads/2017/02/montague-dawson-the-battle-of-trafalgar_.jpg')
 
-User.create(username: 'jim', email: 'jim@gmail.com', password: 'test', profile_image_url: 'http://www.britishbattles.com/wp-content/uploads/2017/02/montague-dawson-the-battle-of-trafalgar_.jpg')
+User.create(email: 'jim', password: 'test', profile_image_url: 'http://www.britishbattles.com/wp-content/uploads/2017/02/montague-dawson-the-battle-of-trafalgar_.jpg')
+
+User.create(email: 'w', password: 'test', profile_image_url: "")
 
 Record.create(name: 'test.js', language: 'javascript', content: 'First file! It\'s awesome')
 
