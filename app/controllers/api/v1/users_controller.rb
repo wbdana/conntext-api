@@ -24,12 +24,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     render json: {
       user: {
         email: @user.email,
         profile_image_url: @user.profile_image_url
-      }
+      },
+      created_records: @user.created_records,
+      partner_records: @user.records
     }
   end
 
