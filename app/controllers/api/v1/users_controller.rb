@@ -33,6 +33,11 @@ class Api::V1::UsersController < ApplicationController
     }
   end
 
+  def created_records
+    @records = current_user.created_records
+    render json: @records
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :profile_image_url)
