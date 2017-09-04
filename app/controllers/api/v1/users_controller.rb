@@ -34,7 +34,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def created_records
-    @records = current_user.created_records
+    @user = User.find(params[:id])
+    @records = @user.created_records
     render json: @records
   end
 
