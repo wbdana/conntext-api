@@ -8,7 +8,10 @@ Rails.application.routes.draw do
       resources :records_users
 
       get 'cu' => 'users#cu'
+
       get '/users/:id/created_records' => 'users#created_records'
+
+      get '/users/:id/partner_records' => 'users#partner_records'
 
       # get '/records/:id', to: 'records#'
 

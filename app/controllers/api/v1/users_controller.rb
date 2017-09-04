@@ -39,6 +39,12 @@ class Api::V1::UsersController < ApplicationController
     render json: @records
   end
 
+  def partner_records
+    @user = User.find(params[:id])
+    @records = @user.records
+    render json: @records
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :profile_image_url)
