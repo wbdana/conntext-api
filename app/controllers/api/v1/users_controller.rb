@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   # before_action :authenticate_user, except: [:create]
 
   def index
-    @users = User.all.map{|user| {id: user.id, username: user.username, email: user.email, profile_image_url: user.profile_image_url}}
+    @users = User.all.map{|user| {id: user.id, email: user.email, profile_image_url: user.profile_image_url}}
     render json: @users
   end
 
@@ -27,7 +27,6 @@ class Api::V1::UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     render json: {
       user: {
-        username: @user.username,
         email: @user.email,
         profile_image_url: @user.profile_image_url
       }
@@ -36,7 +35,7 @@ class Api::V1::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password, :profile_image_url)
+    params.require(:user).permit(:email, :password, :profile_image_url)
   end
 
 end
