@@ -11,7 +11,7 @@ class Api::V1::RecordsController < ApplicationController
   end
 
   def create
-    @record = Record.new(record_params)
+    @record = Record.new(name: params[:name], language: params[:language], content: params[:content], owner_id: params[:owner_id])
     if @record.save
       render json: {status: 200}
     else
@@ -32,7 +32,7 @@ class Api::V1::RecordsController < ApplicationController
 
   private
   def record_params
-    params.require(:record).permit(:name, :language, :content)
+    params.require(:record).permit(:name, :language, :content, :owner_id)
   end
 
 # index, show, new, edit, create, update and destroy

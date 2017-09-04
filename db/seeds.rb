@@ -12,9 +12,9 @@ User.create(email: 'jim', password: 'test', profile_image_url: 'http://www.briti
 
 User.create(email: 'w', password: 'test', profile_image_url: 'http://www.britishbattles.com/wp-content/uploads/2017/02/montague-dawson-the-battle-of-trafalgar_.jpg')
 
-Record.create(name: 'test', language: 'javascript', content: 'First file! It\'s awesome')
+Record.create(name: 'test', language: 'javascript', content: 'First file! It\'s awesome', owner_id: 1)
 
-Record.create(name: 'test', language: 'ruby', content: 'Second file! It\'s also awesome')
+Record.create(name: 'test', language: 'ruby', content: 'Second file! It\'s also awesome', owner_id: 2)
 
 RecordsUser.create(user_id: 1, record_id: 1)
 RecordsUser.create(user_id: 1, record_id: 2)
