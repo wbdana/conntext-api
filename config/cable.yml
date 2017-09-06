@@ -6,5 +6,9 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://h:p6472819ba009523be214d8ebf4a43c5b473264f518dd992516c2a87207b7f015@ec2-34-233-163-137.compute-1.amazonaws.com:16419
+  host: ec2-34-233-163-137.compute-1.amazonaws.com
+  port: 16419
+  password: p6472819ba009523be214d8ebf4a43c5b473264f518dd992516c2a87207b7f015
+  # url: redis://localhost:6379/1
   channel_prefix: conntext-api_production
