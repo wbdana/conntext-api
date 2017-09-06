@@ -1,6 +1,11 @@
 class RecordChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    @record = Record.find_by(id: params[:room])
+    stream_for @record
+  end
+
+  def received(data)
+    RecordChannel.broadcast_to(@record, @record)
   end
 
   def unsubscribed
