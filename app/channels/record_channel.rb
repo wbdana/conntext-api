@@ -5,7 +5,7 @@ class RecordChannel < ApplicationCable::Channel
   end
 
   def received(data)
-    RecordChannel.broadcast_to(@record, @record)
+    RecordChannel.broadcast_to(@record, {record: @record})
   end
 
   def unsubscribed
