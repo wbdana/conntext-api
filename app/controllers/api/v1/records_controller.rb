@@ -32,6 +32,10 @@ class Api::V1::RecordsController < ApplicationController
     RecordChannel.broadcast_to(@record, {record: @record})
   end
 
+  def broadcast
+    RecordChannel.broadcast_to(@record, {record: @record})
+  end
+
   private
   def record_params
     params.require(:record).permit(:name, :language, :content, :owner_id)
