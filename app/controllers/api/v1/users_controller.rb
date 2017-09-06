@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
       @user.profile_image_url = "http://www.britishbattles.com/wp-content/uploads/2017/02/montague-dawson-the-battle-of-trafalgar_.jpg"
     end
     if @user.save
-      render json: {status: 200}
+      render json: {user: @user, status: 200}
     else
       render json: {messages: @user.errors.full_messages, status: 400}
     end
