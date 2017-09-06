@@ -33,6 +33,7 @@ class Api::V1::RecordsController < ApplicationController
   end
 
   def broadcast
+    @record = Record.find_by(id: params[:id])
     RecordChannel.broadcast_to(@record, {record: @record})
   end
 
