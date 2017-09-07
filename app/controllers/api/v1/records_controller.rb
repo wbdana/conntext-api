@@ -13,7 +13,7 @@ class Api::V1::RecordsController < ApplicationController
   def create
     @record = Record.new(name: params[:name], language: params[:language], content: params[:content], owner_id: params[:owner_id])
     if @record.save
-      render json: {status: 200}
+      render json: {record: @record, status: 200}
     else
       render json: {messages: @record.errors.full_messages, status: 400}
     end
