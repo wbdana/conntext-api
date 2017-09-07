@@ -2,7 +2,7 @@ class Api::V1::MessagesController < ApplicationController
 
   def create
     @record = Record.find_by(id: params[:record_id])
-    @user = User.find_by(id: params:[user_id])
+    @user = User.find_by(id: params[:user_id])
     @message = Message.new(record_id: params[:record_id], content: params[:content], username: @user.email)
     if @message.save
       render json: {record: @record, messages: @record.messages, status: 200}
