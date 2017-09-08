@@ -35,6 +35,8 @@ class Api::V1::RecordsController < ApplicationController
   def destroy
     @record = Record.find_by(id: params[:id])
     @record.destroy
+    @records = Record.all
+    render json: @records
   end
 
   private
