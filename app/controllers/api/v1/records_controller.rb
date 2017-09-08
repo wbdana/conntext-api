@@ -32,6 +32,11 @@ class Api::V1::RecordsController < ApplicationController
     RecordChannel.broadcast_to(@record, {record: @record, messages: @record.messages})
   end
 
+  def destroy
+    @record = Record.find_by(id: params[:id])
+    @record.destroy
+  end
+
   private
   def record_params
     params.require(:record).permit(:name, :language, :content, :owner_id)
