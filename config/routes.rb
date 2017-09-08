@@ -14,14 +14,6 @@ Rails.application.routes.draw do
 
       get '/users/:id/partner_records' => 'users#partner_records'
 
-      post '/records/:id/broadcast' => 'records#broadcast'
-
-      # get '/records/:id', to: 'records#'
-
-      # get '/users/:id/lines', to: 'users#lines'
-      # get '/users/:id/created_lines', to: 'users#created_lines'
-      # get '/lines/:id/users', to: 'lines#users'
-
       mount ActionCable.server, at: '/cable'
     end
   end
