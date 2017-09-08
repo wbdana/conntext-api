@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user, except: [:create]
+  # before_action :authenticate_user, except: [:create]
 
   def index
     @users = User.all.map{|user| {id: user.id, email: user.email, profile_image_url: user.profile_image_url}}
