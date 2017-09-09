@@ -27,9 +27,9 @@ class Api::V1::RecordsController < ApplicationController
 
   def update
     @record = Record.find_by(id: params[:id])
-    RecordChannel.broadcast_to(@record, {record: @record, messages: @record.messages})
     @record.update(record_params)
     render json: @record
+    RecordChannel.broadcast_to(@record, {record: @record, messages: @record.messages})
   end
 
   def destroy
