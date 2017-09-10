@@ -21,7 +21,7 @@ class Api::V1::RecordsController < ApplicationController
 
   def show
     @record = Record.find_by(id: params[:id])
-    render json: {record: @record, messages: @record.messages}
+    render json: {record: @record, messages: @record.messages, partners: @record.users}
     # RecordChannel.broadcast_to(@record, {record: @record})
   end
 
