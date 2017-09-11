@@ -8,9 +8,16 @@ class Api::V1::RecordsUsersController < ApplicationController
       @records_user = RecordsUser.new(user_id: @user.id, record_id: @record.id)
     end
     if @records_user.save
-      # WEBSOCKET BROADCAST FOR COLLABORATOR ADDITION
+      RecordChannel.broadcast_to(@record, {record: @record, messages: @record.messages, partners: @record.users})
       render json: {status: 200}
     end
+  end
+
+  def destroy
+    @records_user = RecordUser.find_by(record_id: params[:record_id], user_id: params[:user_id])
+    @record = Record.find_by(id: params[:record_id])
+    @records_user.destroy
+    RecordChannel.broadcast_to(@record, {record: @record, messages: @record.messages, partners: @record.users})
   end
 
 end
