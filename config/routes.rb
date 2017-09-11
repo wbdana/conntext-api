@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
       get '/users/:id/partner_records' => 'users#partner_records'
 
-      post '/records_user' => '#records_user#create'
+      post '/records_user' => '#records_users#create'
 
       delete '/records_user' => 'records_users#destroy'
 
