@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users
       resources :records
-      resources :records_users
+      resources :records_users, except: :destroy
       resources :messages
 
       get 'cu' => 'users#cu'
