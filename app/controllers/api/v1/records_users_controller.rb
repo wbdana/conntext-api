@@ -14,7 +14,7 @@ class Api::V1::RecordsUsersController < ApplicationController
   end
 
   def destroy
-    @records_user = RecordUser.find_by(record_id: params[:record_id], user_id: params[:user_id])
+    @records_user = RecordsUser.find_by(record_id: params[:record_id], user_id: params[:user_id])
     @record = Record.find_by(id: params[:record_id])
     @records_user.destroy
     RecordChannel.broadcast_to(@record, {record: @record, messages: @record.messages, partners: @record.users})
