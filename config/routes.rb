@@ -14,9 +14,9 @@ Rails.application.routes.draw do
 
       get '/users/:id/partner_records' => 'users#partner_records'
 
-      post '/records_user' => '#records_users#create'
+      post '/records_users' => '#records_users#create'
 
-      delete '/records_user' => 'records_users#destroy'
+      delete '/records_users' => 'records_users#destroy'
 
       mount ActionCable.server, at: '/cable'
     end
