@@ -15,4 +15,5 @@ class User < ApplicationRecord
   has_many :records_users
   has_many :records, through: :records_users
   has_many :created_records, foreign_key: :owner_id, class_name: "Record"
+  validates: :email, uniqueness: true
 end
