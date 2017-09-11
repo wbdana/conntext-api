@@ -12,4 +12,5 @@
 class RecordsUser < ApplicationRecord
   belongs_to :user
   belongs_to :record
+  validates_uniqueness_of :user_id, scope: :record_id
 end
