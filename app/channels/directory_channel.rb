@@ -6,7 +6,7 @@ class DirectoryChannel < ApplicationCable::Channel
 
   def received(data)
     @users = User.all
-    DirectoryChannel.broadcast("directory", {users: @user})
+    DirectoryChannel.broadcast_to("directory", {users: @user})
   end
 
   def unsubscribed

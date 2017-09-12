@@ -19,7 +19,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       @users = User.all
       render json: {user: @user, status: 200}
-      DirectoryChannel.broadcast("directory", {users: @users})
+      DirectoryChannel.broadcast_to("directory", {users: @users})
     else
       render json: {messages: @user.errors.full_messages, status: 400}
     end
