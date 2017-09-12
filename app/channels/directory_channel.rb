@@ -1,7 +1,8 @@
 class DirectoryChannel < ApplicationCable::Channel
   def subscribed
     @users = User.all
-    stream_from "directory"
+    @user = User.find_by(id: params[:room])
+    stream_for @user
   end
 
   def received(data)
