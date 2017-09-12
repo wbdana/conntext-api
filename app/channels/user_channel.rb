@@ -6,6 +6,7 @@ class UserChannel < ApplicationCable::Channel
 
   def received(data)
     UserChannel.broadcast_to(@user, {user: @user})
+  end
 
   def unsubscribed
   end
