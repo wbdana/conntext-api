@@ -12,7 +12,16 @@ class Api::V1::RecordsController < ApplicationController
 
   def create
     @record = Record.new(name: params[:name], language: params[:language], content: params[:content], owner_id: params[:owner_id])
+    @user = @record.owner
     if @record.save
+      UserChannel.broadcast_to(@user, {
+        user: {
+          email: @user.email,
+          profile_image_url: @user.profile_image_url
+        },
+        created_records: @user.created_records,
+        partner_records: @user.records
+      })
       render json: {record: @record, status: 200}
     else
       render json: {messages: @record.errors.full_messages, status: 400}
@@ -34,8 +43,17 @@ class Api::V1::RecordsController < ApplicationController
 
   def destroy
     @record = Record.find_by(id: params[:id])
+    @user = @record.owner
     @record.destroy
     @records = Record.all
+    UserChannel.broadcast_to(@user, {
+      user: {
+        email: @user.email,
+        profile_image_url: @user.profile_image_url
+      },
+      created_records: @user.created_records,
+      partner_records: @user.records
+    })
     render json: @records
   end
 
