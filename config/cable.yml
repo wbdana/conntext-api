@@ -6,10 +6,9 @@ test:
 
 production:
   adapter: redis
-  # url: redis://h:p6472819ba009523be214d8ebf4a43c5b473264f518dd992516c2a87207b7f015@ec2-34-233-163-137.compute-1.amazonaws.com:16419
-  url: redis://h:pfc9101ff1119bec33dc9e7e40ad019365ffb47b6174f67c57342ec8c0df47a4b@ec2-18-205-16-115.compute-1.amazonaws.com:10709  
+  url: <%= ENV['REDIS_URL'] %>
   host: ec2-34-233-163-137.compute-1.amazonaws.com
   port: 16419
-  password: p6472819ba009523be214d8ebf4a43c5b473264f518dd992516c2a87207b7f015
+  password: <%= ENV['SECRET_KEY_BASE'] %>
   # url: redis://localhost:6379/1
   channel_prefix: conntext-api_production
