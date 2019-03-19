@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails conntext-api: test" uuid="0dedea4f-8670-4a50-8952-4b1a367082fc">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0.0" />
+    </data-source>
+    <data-source name="Rails conntext-api: production" uuid="555fad52-0e0b-43c3-ac00-099df47a8fe1">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0.0" />
+      <user-name>conntext-api</user-name>
+    </data-source>
+    <data-source name="Rails conntext-api: development" uuid="99cbc5fd-3be7-4a12-baac-d26463ef284c">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0.0" />
+    </data-source>
+  </component>
+</project>
